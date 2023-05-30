@@ -1,6 +1,6 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Link, Tabs } from 'expo-router';
-import { Pressable, useColorScheme } from 'react-native';
+import { Tabs } from 'expo-router';
+import { useColorScheme } from 'react-native';
 
 import Colors from '../../constants/Colors';
 
@@ -20,34 +20,28 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
+        headerShown:false,
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
       }}>
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          ),
+          title: 'Home',
+          tabBarIcon: ({ focused }:{focused: boolean}) => <TabBarIcon name="home" color={colorScheme==="light"?focused && 'green' || 'gray': focused && 'green' || 'white'} />,
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="contact"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Contact',
+          tabBarIcon: ({ focused }:{focused: boolean}) => <TabBarIcon name="phone" color={colorScheme==="light"?focused && 'green' || 'gray': focused && 'green' || 'white'} />,
+        }}
+      />
+      <Tabs.Screen
+        name="about"
+        options={{
+          title: 'About',
+          tabBarIcon: ({ focused }:{focused: boolean}) => <TabBarIcon name="info-circle" color={colorScheme==="light"?focused && 'green' || 'gray': focused && 'green' || 'white'}  />,
         }}
       />
     </Tabs>
