@@ -20,28 +20,55 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        headerShown:false,
+        headerShown: false,
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
       }}>
       <Tabs.Screen
         name="index"
         options={{
           title: 'Home',
-          tabBarIcon: ({ focused }:{focused: boolean}) => <TabBarIcon name="home" color={colorScheme==="light"?focused && 'green' || 'gray': focused && 'green' || 'white'} />,
+          tabBarIcon: ({ focused }: { focused: boolean }) => (
+            <TabBarIcon
+              name="home"
+              color={
+                colorScheme === 'light'
+                  ? (focused && 'green') || 'gray'
+                  : (focused && 'green') || 'white'
+              }
+            />
+          ),
         }}
       />
       <Tabs.Screen
         name="contact"
         options={{
           title: 'Contact',
-          tabBarIcon: ({ focused }:{focused: boolean}) => <TabBarIcon name="phone" color={colorScheme==="light"?focused && 'green' || 'gray': focused && 'green' || 'white'} />,
+          tabBarIcon: ({ focused }: { focused: boolean }) => (
+            <TabBarIcon
+              name="phone"
+              color={
+                colorScheme === 'light'
+                  ? (focused && 'green') || 'gray'
+                  : (focused && 'green') || 'white'
+              }
+            />
+          ),
         }}
       />
       <Tabs.Screen
         name="about"
         options={{
           title: 'About',
-          tabBarIcon: ({ focused }:{focused: boolean}) => <TabBarIcon name="info-circle" color={colorScheme==="light"?focused && 'green' || 'gray': focused && 'green' || 'white'}  />,
+          tabBarIcon: ({ focused }: { focused: boolean }) => (
+            <TabBarIcon
+              name="info-circle"
+              color={
+                colorScheme === 'light'
+                  ? (focused && 'green') || 'gray'
+                  : (focused && 'green') || 'white'
+              }
+            />
+          ),
         }}
       />
     </Tabs>
